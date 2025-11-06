@@ -1,5 +1,5 @@
 # --- STAGE 1: Build The Project ---
-# Use a specific, official Maven image that Render will find
+# Use a specific, official Maven image
 FROM maven:3.9.6-eclipse-temurin-17-focal AS build
 
 # Set the working directory
@@ -11,6 +11,7 @@ RUN mvn dependency:go-offline
 
 # Copy the rest of the source code and build the JAR
 COPY src ./src
+# --- THIS IS THE FINAL FIX: Skip the tests ---
 RUN mvn install -DskipTests
 
 
