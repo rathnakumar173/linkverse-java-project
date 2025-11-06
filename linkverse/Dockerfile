@@ -1,6 +1,6 @@
 # --- STAGE 1: Build The Project ---
-# Use a Maven image to build the app
-FROM maven:3.8-jdk-17 AS build
+# Use a more specific, official Maven image that Render will find
+FROM maven:3.9.6-eclipse-temurin-17-focal AS build
 
 # Set the working directory
 WORKDIR /app
@@ -15,7 +15,7 @@ RUN mvn clean install
 
 
 # --- STAGE 2: Create the Final Run Image ---
-# Use the lightweight Java 17 image
+# This image worked before, so we keep it
 FROM eclipse-temurin:17-jdk-focal
 
 WORKDIR /app
