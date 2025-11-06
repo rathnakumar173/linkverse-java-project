@@ -11,7 +11,7 @@ RUN mvn dependency:go-offline
 
 # Copy the rest of the source code and build the JAR
 COPY src ./src
-RUN mvn clean install
+RUN mvn install
 
 
 # --- STAGE 2: Create the Final Run Image ---
