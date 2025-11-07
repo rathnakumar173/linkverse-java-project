@@ -84,3 +84,13 @@ A brief overview of the available API endpoints.
         mvn spring-boot:run
         ```
     * The application will start, and Hibernate will automatically create all tables.
+  
+    * ## How to Test the Live API
+
+The live API is running at `https://linkverse-api.onrender.com`.
+
+You cannot test this in a browser. You must use an API client like **Postman**.
+
+1.  **Register a user:** `POST` to `https://linkverse-api.onrender.com/api/v1/auth/register` with your email/password.
+2.  **Login:** `POST` to `https://linkverse-api.onrender.com/api/v1/auth/login` to get your JWT.
+3.  **Test endpoints:** Use that JWT as a Bearer Token to test other endpoints like `GET /api/v1/teams`.
